@@ -9,7 +9,8 @@ lazy val root = (project in file(".")).
     inThisBuild(List(
       organization := "com.example",
       scalaVersion := "2.12.2",
-      version      := "0.1.0-SNAPSHOT"
+      version      := "0.1.0-SNAPSHOT",
+      scalacOptions += "-Ypartial-unification"
     )),
     name := "freestyle-test",
     libraryDependencies ++= mainDeps
