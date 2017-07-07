@@ -24,7 +24,7 @@ object test {
   def program[F[_]]()(implicit module: App[F]): FreeS[F, Int] = {
     val l: List[FreeS[F, Int]] = 1.to(10).toList.map(_ => getInt[F])
     // does not work
-    Traverse[List].traverse(1.to(10).toList)(_ => getInt[F])
+    val result: FreeS[F, List[Int]] = Traverse[List].traverse(1.to(10).toList)(_ => getInt[F])
     // does work
 //    Traverse[List].traverse(1.to(10).toList)(_ => module.generator.getInt)
     FreeS.pure(1)
